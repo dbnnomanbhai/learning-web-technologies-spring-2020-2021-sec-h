@@ -6,10 +6,10 @@
  
  
    <name>
-          <first_name> "john doe" </first_name>
+          <first_name> john doe</first_name>
    </name>
-        <ADDRESS> " H# R#3 ,banani dhaka" </ADDRESS>
-       <DEPARTMENT>  "sales" </DEPARTMENT>
+        <ADDRESS> H# R#3 ,banani dhaka </ADDRESS>
+       <DEPARTMENT>  sales </DEPARTMENT>
        <SALARY> $2000000 </SALARY>
 </adress>
  
@@ -20,10 +20,10 @@
  
  
    <name>
-          <first_name> "mark zukarbarg" </first_name>
+          <first_name> mark zukarbarg </first_name>
    </name>
-        <ADDRESS> " flat A1 H#15, MIRPUR,DHAKA" </ADDRESS>
-       <DEPARTMENT>  "account" </DEPARTMENT>
+        <ADDRESS>  flat A1 H#15, MIRPUR,DHAKA</ADDRESS>
+       <DEPARTMENT>  account </DEPARTMENT>
       <SALARY> $21000000 </SALARY>
 </adress>
  
@@ -34,10 +34,10 @@
  
  
    <name>
-          <first_name> " ala bhoski "</first_name>
+          <first_name> ala bhoski </first_name>
    </name>
-       <ADDRESS> " H# R#3 ,motejheel" </ADDRESS>
-       <DEPARTMENT>  "human resources" </DEPARTMENT>
+       <ADDRESS>  H# R#3 ,motejheel </ADDRESS>
+       <DEPARTMENT>  human resources</DEPARTMENT>
        <SALARY> $5000000 </SALARY>
      </adress>
  
