@@ -1,0 +1,34 @@
+<students>
+
+
+
+<student sr="1" >
+
+    <SL_NO> 23 </SL_NO>
+   <name>
+          <first_name> "john carter" </first_name>
+   </name>
+   <ADMISSON_DATE> 25/12/2015 </ADMISSON_DATE>
+ </student>
+		  
+       
+ 
+ <student sr="2" >
+
+    <SL_NO> 29</SL_NO>
+   <name>
+          <first_name> "bob marshal" </first_name>
+   </name>
+   <ADMISSON_DATE> 13/01/1999</ADMISSON_DATE>
+ </student>
+ 
+ 
+  <student sr="3" >
+
+    <SL_NO> 29</SL_NO>
+   <name>
+          <first_name> "ala voski" </first_name>
+   </name>
+   <ADMISSON_DATE> 17/06/2015</ADMISSON_DATE>
+ </student>
+<students>	  
