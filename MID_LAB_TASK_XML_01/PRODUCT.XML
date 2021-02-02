@@ -6,7 +6,7 @@
 
     <id> 11 </id>
    <name>
-          <first_name> "samsung" </first_name>
+          <first_name> samsung </first_name>
    </name>
         <unit_price> 35000 </unit_price>
         <stock>       50  </stock>
@@ -21,7 +21,7 @@
 
     <id> 20 </id>
    <name>
-          <first_name> "HTC" </first_name>
+          <first_name> HTC </first_name>
    </name>
         <unit_price> 65300 </unit_price>
         <stock>      35  </stock>
@@ -36,7 +36,7 @@
 
     <id> 23 </id>
    <name>
-          <first_name> "Nokia" </first_name>
+          <first_name> Nokia</first_name>
    </name>
         <unit_price> 25100 </unit_price>
         <stock>       100  </stock>
