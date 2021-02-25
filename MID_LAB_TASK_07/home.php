@@ -14,7 +14,7 @@
                     <nav>
                         <a href='./home.php'>Home</a> |
                         <a href='./login.php'>Log In</a> |
-                        <a href='./registration.php'>Registration</a>
+                        <a href='./reg.php'>Registration</a>
                     </nav>
                 </td>
             </tr>
