@@ -1,148 +1,50 @@
-<?php
-    session_start();  
-
-
-     if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
-
+<?php 
+    if(isset($_POST['signup'])){
+        if( empty($_POST['id']) || empty($_POST['password']) || empty($_POST['repass']) || empty($_POST['name']) || empty($_POST['type'])){
+            echo"Plaese fill out all the field";
+        }
+        else{
           
 
-        function get_data() { 
+            if ($temp_id[0]>0) {
+                 
+            }
+            else{
 
-            $datae = array(); 
-
-            $datae[] = array( 
-
-                'Name' => $_POST['name'], 
-
-                  'email' => $_POST['email'], 
-				  
-                  'username' => $_POST['username'], 
- 
-
-            ); 
-
-            return json_encode($datae); 
-
-        } 
-
-          
-
-        $name = "gfg"; 
-
-        $file_name = $name . '.json'; 
-
-       
-
-              if(file_put_contents( 
-
-            "$file_name", get_data())) { 
-
-                echo $file_name .' file created'; 
-
-            } 
-
-        else { 
-
-            echo 'There is some error'; 
-
-        } 
-
-    } 
- 
- 
- 
-?>
-
-
-
- 
-<?php
- 
-  
-   
- if(isset($_POST['name']) || isset($_POST['id'])   || isset($_POST['password']) || isset($_POST['confirmpassword'])   || isset($_POST['date']) || isset($_POST['gender']) || isset($_POST['month']) || isset($_POST['year'])    || isset($_POST['gender']))
-    {
-		
+                $id= $_POST['id'];
+                $password=$_POST['password'];
+                $repass=$_POST['repass'];
                 $name = $_POST['name'];
-           $email = $_POST['email'];
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $confirmpassword = $_POST['confirmpassword'];
-        //$gende= $_POST['gender'];
-		 
-        //$date = $_POST['date'];
-       //$month = $_POST['month'];
-        //$year = $_POST['year'];
+                $type=$_POST['type'];
 
-        for($i=0;$i<strlen($name);$i++)
-        {
-            if(!((ord($name[$i]) >= 97 && ord($name[$i]) <= 122)) && !((ord($name[$i]) >= 65 && ord($name[$i]) <= 90)) && !(ord($name[$i]) == 32))
-            {
-                echo 'Name can only be alphabetical';break;
-                return;
+                $user=['id'=> $id, 'password'=> $password, 'name' => $name, 'type' => $type ];
+				
+
+                if ($password!=$repass) {
+                    echo"please check your password and confirm password";
+                }
+                else{
+                    if(filesize('../model/data.json')==0){
+                        $json=json_encode($user);
+                        $myfile=fopen('../model/data.json', 'w');
+                        fwrite($myfile, '['.$json.']');
+                    }
+                    else{
+                        $inp = file_get_contents('../model/data.json');
+                        $tempArray = json_decode($inp);
+						 
+                        array_push($tempArray, $user);
+                        $jsonData = json_encode($tempArray);
+                        file_put_contents('../model/gpg.json', $jsonData);
+                    }
+                    header('location: login.php');
+                }
+
             }
-        }
 
-        $atSymbol=false;
-        $atSymbolLocation = 0;
-        $period=false;
-        $periodLocation = 0;
+            
+        }
+    }
 
-        for($i=0;$i<strlen($email);$i++)
-        {
-            if($email[$i] == '@')
-            {
-                $atSymbol = true;
-                $atSymbolLocation = $i;
-            }
-            if($email[$i] == '.')
-            {
-                $period = true;
-                $periodLocation = $i;
-            }
-        }
-        if(!($atSymbol == true && $period == true && $atSymbolLocation < $periodLocation))
-        {
-            echo "Email must contain a '@' and '.'";
-            return;
-        }
-
-        for($i=0;$i<strlen($username);$i++)
-        {
-            if(!((ord($username[$i]) >= 97 && ord($username[$i]) <= 122)) && !((ord($username[$i]) >= 65 && ord($username[$i]) <= 90))  && !((ord($username[$i]) >= 48 && ord($username[$i]) <= 57)))
-            {
-                echo 'Username can be only alphanumeric';break;
-                return;
-            }
-        }
-        
-        if($password != $confirmpassword)
-        {
-            echo 'Passwords do not match!';
-            return;
-        }
-        if(strlen($password) < 8)
-        {
-            echo 'Password must be atleast 8 characters!';
-            return;
-        }
-        
-        echo "Registered successfully!";
-		
-    
-	 
-        $_SESSION['name'] = $name;
-  
-		
-        $_SESSION['email'] = $email;
-        $_SESSION['username'] = $username;
-        $_SESSION['password'] = $password;
- 
-
-        $_SESSION['flag'] = true;
-        
-		
-        header('location: login.php');
-		       
-	}
 ?>
+ 
