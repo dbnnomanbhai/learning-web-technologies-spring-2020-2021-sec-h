@@ -60,7 +60,7 @@
  
   
    
- if(isset($_POST['name']) || isset($_POST['username']) || isset($_POST['email'])  || isset($_POST['password']) || isset($_POST['confirmpassword'])   || isset($_POST['date']) || isset($_POST['gender']) || isset($_POST['month']) || isset($_POST['year'])    || isset($_POST['gender']))
+ if(isset($_POST['name']) || isset($_POST['id'])   || isset($_POST['password']) || isset($_POST['confirmpassword'])   || isset($_POST['date']) || isset($_POST['gender']) || isset($_POST['month']) || isset($_POST['year'])    || isset($_POST['gender']))
     {
 		
                 $name = $_POST['name'];
@@ -68,11 +68,11 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
         $confirmpassword = $_POST['confirmpassword'];
-        $gende= $_POST['gender'];
+        //$gende= $_POST['gender'];
 		 
-        $date = $_POST['date'];
-        $month = $_POST['month'];
-        $year = $_POST['year'];
+        //$date = $_POST['date'];
+       //$month = $_POST['month'];
+        //$year = $_POST['year'];
 
         for($i=0;$i<strlen($name);$i++)
         {
@@ -137,10 +137,7 @@
         $_SESSION['email'] = $email;
         $_SESSION['username'] = $username;
         $_SESSION['password'] = $password;
-        $_SESSION['gender'] = $gender;
-        $_SESSION['date'] = $date;
-        $_SESSION['month'] = $month;
-        $_SESSION['year'] = $year;
+ 
 
         $_SESSION['flag'] = true;
         
