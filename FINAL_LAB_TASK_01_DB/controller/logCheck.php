@@ -1,21 +1,34 @@
 <?php
 	session_start();
-
+	require_once('../model/dbConnection.php');
 	if(isset($_POST['submit'])){
-
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-
-		if($username == "" || $password == ""){
+		
+		if($_POST['username'] == "" || $_POST['password'] == ""){
 			echo "null submission...";
 		}else{
-			$user = $_SESSION['current_user'];
 
-			if($username == $user['username'] && $password == $user['password']){
-				$_SESSION['flag'] = true;
-				header('location: ../view/home.php');
-			}else{
-				echo "invalid user";
+			$connection = getConnection();
+			$sql = "select * from registration";
+			$result = mysqli_query($connection, $sql);
+
+			$check = false;
+			while($row = mysqli_fetch_assoc($result))
+			{
+				$username = $row['username'];
+				$password = $row['password'];
+				if($username == $_POST['username'] && $password == $_POST['password'])
+				{
+					$check = true;
+					$_SESSION['flag'] = true;
+					$_SESSION['currUsername'] = $username;
+					$_SESSION['currPassword'] = $password; 
+					header('location: ../view/home.php');
+				}
+			}
+
+			if($check == false)
+			{
+				echo "Invalid User";
 			}
 		}
 
