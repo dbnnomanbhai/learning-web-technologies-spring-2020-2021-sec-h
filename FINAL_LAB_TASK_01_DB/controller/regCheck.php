@@ -1,24 +1,28 @@
-<?php 
-session_start();
-$_SESSION['Name']=$_POST['name'];
-	    $_SESSION['Email']=$_POST['email'];
-		  $_SESSION['Gender']=$_POST['gender'];
-	  $_SESSION['Password']=$_POST['password'];
+<?php
+	
+	require_once('../model/dbConnection.php');
+	if(isset($_POST['signup'])){
 
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+		$repass = $_POST['repass'];
+		$email = $_POST['email'];
+
+		if($username == "" || $email == "" || $password == "" || $repass == ""){
+			echo "null submission...";
+		}else{
+
+			if($password == $repass){
+
+			 
+				$connection = getConnection();
+				$sql = "insert into registration (id,username,password,email) values('','$username','$password','$email')";
+				$result = mysqli_query($connection,$sql);
+				header('location: ../view/login.html');
+			}else{
+				echo "password & confirm password mismatch..";
+			}
+		}
+
+	}
 ?>
-
- 
-<html>
-<body>
-
-<form action="db.php" method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
-</form>
-
-
-
-
-</body>
-</html>
