@@ -7,7 +7,7 @@
 	{
 		$id = $_POST['id'];
 		$password = $_POST['password'];
-		$cPassword = $_POST['confirmPassword'];
+		$confirmPassword= $_POST['confirmPassword'];
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$type = $_POST['type'];
