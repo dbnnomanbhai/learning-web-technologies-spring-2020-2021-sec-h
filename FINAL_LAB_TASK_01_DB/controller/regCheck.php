@@ -1,6 +1,6 @@
 <?php
 	
-	require_once('../model/dbConnection.php');
+	require_once('../model/db.php');
 	if(isset($_POST['signup'])){
 
 		$username = $_POST['username'];
