@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require_once('../model/dbConnection.php');
+	require_once('../model/db.php');
 	if(isset($_POST['submit'])){
 		
 		if($_POST['username'] == "" || $_POST['password'] == ""){
